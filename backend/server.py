@@ -50,6 +50,17 @@ async def shutdown_db_client():
     await close_mongo_connection()
 
 # Helper functions
+def convert_objectid_to_str(data):
+    """Convert MongoDB ObjectIds to strings for JSON serialization"""
+    if isinstance(data, dict):
+        return {key: convert_objectid_to_str(value) for key, value in data.items()}
+    elif isinstance(data, list):
+        return [convert_objectid_to_str(item) for item in data]
+    elif isinstance(data, ObjectId):
+        return str(data)
+    else:
+        return data
+
 async def get_user_by_id(user_id: str) -> User:
     """Get user by ID, raise 404 if not found"""
     users_collection = await get_users_collection()
