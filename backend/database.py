@@ -43,7 +43,8 @@ async def connect_to_mongo():
     """Create database connection"""
     db_instance.client = AsyncIOMotorClient(os.environ["MONGO_URL"])
     db_instance.database = db_instance.client[os.environ["DB_NAME"].strip('"')]
-    print(f"Connected to MongoDB: {os.environ['DB_NAME'].strip('\"')}")
+    db_name = os.environ["DB_NAME"].strip('"')
+    print(f"Connected to MongoDB: {db_name}")
 
 
 async def close_mongo_connection():
