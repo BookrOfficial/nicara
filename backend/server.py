@@ -302,7 +302,7 @@ async def check_achievements(user_id: str):
 async def get_daily_challenge(user_id: str):
     """Get today's daily challenge"""
     challenge = await ChallengeService.get_or_create_daily_challenge(user_id)
-    return challenge
+    return convert_objectid_to_str(challenge)
 
 @api_router.post("/challenges/{user_id}/{challenge_id}/complete")
 async def complete_daily_challenge(user_id: str, challenge_id: str):
