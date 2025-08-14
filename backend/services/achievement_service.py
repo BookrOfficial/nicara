@@ -28,6 +28,7 @@ class AchievementService:
                                 achievement_def["unlock_criteria"].get("money_saved", 
                                 achievement_def["unlock_criteria"].get("cravings_managed",
                                 achievement_def["unlock_criteria"].get("chat_sessions", 1)))))
+            )
             
             user_achievements.append(user_achievement.dict())
         
