@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import List, Optional, Dict, Any
 from datetime import datetime, timedelta
 import uuid
+from bson import ObjectId
 
 # Import models and services
 from models import (
