@@ -274,7 +274,7 @@ async def handle_quick_action(action_request: QuickActionRequest):
 async def get_user_achievements(user_id: str):
     """Get all user achievements"""
     achievements = await AchievementService.get_user_achievements(user_id)
-    return achievements
+    return convert_objectid_to_str(achievements)
 
 @api_router.get("/achievements/available")
 async def get_available_achievements():
